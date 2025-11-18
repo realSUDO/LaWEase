@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { ChatMessage } from "./ChatMessage";
-import { Sparkles } from "lucide-react";
+import { Gavel } from "lucide-react";
 
 interface Message {
   id: string;
@@ -31,11 +31,11 @@ export const ChatInterface = ({ messages }: ChatInterfaceProps) => {
             <div className="flex justify-center">
               <div className="relative">
                 <div className="absolute inset-0 bg-gradient-to-r from-secondary to-primary/50 rounded-full blur-2xl opacity-50 animate-pulse"></div>
-                <Sparkles className="h-16 w-16 text-secondary relative z-10" />
+                <Gavel className="h-16 w-16 text-secondary relative z-10" />
               </div>
             </div>
             <h2 className="text-3xl font-bold text-foreground bg-gradient-to-r from-secondary via-primary to-secondary bg-clip-text text-transparent">
-              Welcome to AI Assistant
+              Welcome to LaWEase
             </h2>
             <p className="text-muted-foreground text-lg">
               Start a conversation, ask questions, or upload a PDF to analyze. I'm here to help!
