@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { FileText, Send } from "lucide-react";
+import { Paperclip, Send } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
@@ -57,7 +57,7 @@ export const ChatInput = ({ onSendMessage, disabled }: ChatInputProps) => {
               onClick={handleUploadPDF}
               className="h-10 w-10 rounded-xl hover:bg-accent text-muted-foreground hover:text-foreground transition-all duration-200"
             >
-              <FileText className="h-5 w-5" />
+              <Paperclip className="h-5 w-5" />
             </Button>
             
             <Button

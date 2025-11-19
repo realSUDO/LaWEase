@@ -18,11 +18,7 @@ export const ChatHeader = ({ onMenuClick, onCallClick }: ChatHeaderProps) => {
         >
           <Menu className="h-5 w-5" />
         </Button>
-        <div>
-          <h1 className="text-lg font-bold">AI Assistant</h1>
-          <p className="text-xs text-primary-foreground/70">Always here to help</p>
-        </div>
-      </div>
+              </div>
       
       <Button
         variant="ghost"

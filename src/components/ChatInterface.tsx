@@ -31,7 +31,7 @@ export const ChatInterface = ({ messages }: ChatInterfaceProps) => {
             <div className="flex justify-center">
               <div className="relative">
                 <div className="absolute inset-0 bg-gradient-to-r from-secondary to-primary/50 rounded-full blur-2xl opacity-50 animate-pulse"></div>
-                <Gavel className="h-16 w-16 text-secondary relative z-10" />
+                <Gavel className="h-24 w-24 text-secondary relative z-10 mt-10" />
               </div>
             </div>
             <h2 className="text-3xl font-bold text-foreground bg-gradient-to-r from-secondary via-primary to-secondary bg-clip-text text-transparent">
