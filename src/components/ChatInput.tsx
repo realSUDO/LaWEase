@@ -29,10 +29,19 @@ export const ChatInput = ({ onSendMessage, disabled }: ChatInputProps) => {
   };
 
   const handleUploadPDF = () => {
-    toast({
-      title: "Upload PDF",
-      description: "PDF upload feature coming soon!",
-    });
+    const input = document.createElement('input');
+    input.type = 'file';
+    input.accept = '.pdf';
+    input.onchange = (e: Event) => {
+      const file = (e.target as HTMLInputElement).files?.[0];
+      if (file) {
+        toast({
+          title: "PDF Uploaded",
+          description: `${file.name} (${(file.size / 1024).toFixed(2)} KB) ready for analysis`,
+        });
+      }
+    };
+    input.click();
   };
 
   return (

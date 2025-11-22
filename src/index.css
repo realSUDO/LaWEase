@@ -91,4 +91,37 @@ All colors MUST be HSL.
     backdrop-filter: blur(10px);
     background: rgba(47, 65, 86, 0.6);
   }
+
+  .swipe-card {
+    touch-action: pan-y;
+    user-select: none;
+  }
+
+  .swipe-action-button {
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+
+  /* Golden Ratio Spacing System */
+  .golden-section {
+    aspect-ratio: 1.618 / 1;
+  }
+
+  .golden-margin {
+    margin-bottom: 1.618rem;
+  }
+
+  .golden-padding {
+    padding: 1.618rem;
+  }
+
+  /* Hide scrollbar */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
 }

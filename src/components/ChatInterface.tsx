@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { ChatMessage } from "./ChatMessage";
-import { Gavel } from "lucide-react";
+
 
 interface Message {
   id: string;
@@ -27,17 +27,16 @@ export const ChatInterface = ({ messages }: ChatInterfaceProps) => {
     <ScrollArea className="flex-1" ref={scrollRef}>
       {messages.length === 0 ? (
         <div className="flex items-center justify-center h-full text-center px-4">
-          <div className="max-w-2xl space-y-6 animate-fade-in">
-            <div className="flex justify-center">
-              <div className="relative">
-                <div className="absolute inset-0 bg-gradient-to-r from-secondary to-primary/50 rounded-full blur-2xl opacity-50 animate-pulse"></div>
-                <Gavel className="h-24 w-24 text-secondary relative z-10 mt-10" />
-              </div>
+          <div className="max-w-2xl space-y-8 animate-fade-in">
+            <div className="space-y-4">
+              <h2 className="text-5xl font-bold bg-gradient-to-r from-secondary via-primary to-secondary bg-clip-text text-transparent leading-tight">
+                Welcome to LaWEase
+              </h2>
+              <p className="text-muted-foreground text-xl font-light">
+                Your intelligent legal assistant
+              </p>
             </div>
-            <h2 className="text-3xl font-bold text-foreground bg-gradient-to-r from-secondary via-primary to-secondary bg-clip-text text-transparent">
-              Welcome to LaWEase
-            </h2>
-            <p className="text-muted-foreground text-lg">
+            <p className="text-foreground/70 text-base leading-relaxed">
               Start a conversation, ask questions, or upload a PDF to analyze. I'm here to help!
             </p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3 pt-4 max-w-xl mx-auto">

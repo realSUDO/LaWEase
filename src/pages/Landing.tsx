@@ -26,6 +26,10 @@ const Landing = () => {
     });
   };
 
+  const handleFeedClick = () => {
+    navigate("/feed");
+  };
+
   const handleComingSoon = (feature: string) => {
     toast({
       title: "Coming Soon",
@@ -56,7 +60,7 @@ const Landing = () => {
             size="icon"
             variant="outline"
             className="h-16 w-16 rounded-full border-2 border-secondary/50 hover:border-secondary hover:bg-secondary/10 transition-all duration-300 hover:scale-110 glow-effect"
-            onClick={() => handleComingSoon("Feed")}
+            onClick={handleFeedClick}
           >
             <Newspaper className="h-6 w-6 text-secondary" />
           </Button>

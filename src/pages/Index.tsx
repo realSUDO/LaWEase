@@ -5,6 +5,9 @@ import { ChatInterface } from "@/components/ChatInterface";
 import { ChatInput } from "@/components/ChatInput";
 import CallScreen from "@/components/CallScreen";
 import { useToast } from "@/hooks/use-toast";
+import { getLegalResponse } from "@/data/legalKnowledge";
+import { getDetailedLegalResponse } from "@/data/detailedLaw";
+import { getSituationalAdvice } from "@/data/situationalAdvice";
 
 interface Message {
   id: string;
@@ -53,13 +56,32 @@ const Index = () => {
 
     setMessages((prev) => [...prev, userMessage]);
 
-    // Simulate AI response
     setTimeout(() => {
+      const lowerContent = content.toLowerCase();
+      let answer = null;
+      
+      // Greetings
+      if (lowerContent.match(/^(hi|hello|hey|hii|helo|namaste|namaskar)$/)) {
+        answer = "Hello! I'm LaWEase, your intelligent legal assistant. I have comprehensive knowledge of Indian law and constitution. How can I help you today?";
+      } else if (lowerContent.match(/^(good morning|good afternoon|good evening|good night)$/)) {
+        answer = "Good day! I'm LaWEase, ready to assist you with any questions about Indian law and constitution.";
+      } else if (lowerContent.match(/^(how are you|how r u|how are u)$/)) {
+        answer = "I'm functioning perfectly, thank you! Ready to help you with Indian constitutional law. What would you like to know?";
+      } else if (lowerContent.match(/^(thanks|thank you|thankyou|thx)$/)) {
+        answer = "You're welcome! Feel free to ask if you have more questions about Indian law.";
+      } else if (lowerContent.match(/^(bye|goodbye|see you|tata)$/)) {
+        answer = "Goodbye! Feel free to return anytime you need legal assistance.";
+      } else {
+        const situationalAnswer = getSituationalAdvice(content);
+        const detailedAnswer = getDetailedLegalResponse(content);
+        const basicAnswer = getLegalResponse(content);
+        answer = situationalAnswer || detailedAnswer || basicAnswer;
+      }
+      
       const aiMessage: Message = {
         id: (Date.now() + 1).toString(),
         role: "assistant",
-        content:
-          "I'm a demo AI assistant. In a real application, I would process your message and provide a helpful response. This interface is designed to look and feel like ChatGPT!",
+        content: answer || "I'm LaWEase, your intelligent legal assistant with comprehensive knowledge of Indian law and constitution. Ask me about fundamental rights, landmark cases, constitutional provisions, legal doctrines, Parliament, judiciary, or any aspect of Indian constitutional law!",
         timestamp: new Date(),
       };
       setMessages((prev) => [...prev, aiMessage]);
